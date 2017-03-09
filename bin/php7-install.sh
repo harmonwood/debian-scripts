@@ -20,15 +20,15 @@ apt-get update -q && \
 
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Add timezone to php.ini
-cliphpfile='/etc/php/7.0/cli/php.ini'
-fpmphpfile='/etc/php/7.0/fpm/php.ini'
-cp -f $cliphpfile $cliphpfile.input
-cp -f $fpmphpfile $fpmphpfile.input
-perl -p -e 's/^(;?)date\.timezone.*/$1.date.timezone = UTC/eg' $cliphpfile.input > $cliphpfile
-perl -p -e 's/^(;?)date\.timezone.*/$1.date.timezone = UTC/eg' $fpmphpfile.input > $fpmphpfile
-rm $cliphpfile.input
-rm $fpmphpfile.input
+# # Add timezone to php.ini
+# cliphpfile='/etc/php/7.0/cli/php.ini'
+# fpmphpfile='/etc/php/7.0/fpm/php.ini'
+# cp -f $cliphpfile $cliphpfile.input
+# cp -f $fpmphpfile $fpmphpfile.input
+# perl -p -e 's/^(;?)date\.timezone.*/$1.date.timezone = UTC/eg' $cliphpfile.input > $cliphpfile
+# perl -p -e 's/^(;?)date\.timezone.*/$1.date.timezone = UTC/eg' $fpmphpfile.input > $fpmphpfile
+# rm $cliphpfile.input
+# rm $fpmphpfile.input
 
 
 # Add php-fpm.conf
