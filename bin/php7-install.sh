@@ -10,9 +10,9 @@ apt-get update -q && \
     apt-get update -q && \
     apt-get install --no-install-recommends -qy wget ca-certificates \
         htop curl vim git zip unzip sqlite3 mysql-client netcat \
-        php7.0-fpm php7.0-cli php7.0-curl php7.0-gd php7.0-json php7.0-ldap php7.0-mysql \
+        php7.0-fpm php7.0-cli php7.0-curl php7.0-json php7.0-mysql \
         php7.0-odbc php7.0-sybase php7.0-pgsql php7.0-pspell php7.0-readline php7.0-sqlite php7.0-tidy \
-        php7.0-xmlrpc php7.0-xml php7.0-xsl php7.0-intl php7.0-apcu php7.0-apcu-bc php7.0-mcrypt php7.0-mbstring && \
+        php7.0-xmlrpc php7.0-xml php7.0-xsl php7.0-mcrypt php7.0-mbstring && \
 
 
     # Remove apt-get filse to save space
@@ -21,8 +21,8 @@ apt-get update -q && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Add timezone to php.ini
-cliphpfile = '/etc/php/7.0/cli/php.ini'
-fpmphpfile = '/etc/php/7.0/fpm/php.ini'
+cliphpfile='/etc/php/7.0/cli/php.ini'
+fpmphpfile='/etc/php/7.0/fpm/php.ini'
 cp -f $cliphpfile $cliphpfile.input
 cp -f $fpmphpfile $fpmphpfile.input
 perl -p -e 's/^(;?)date\.timezone.*/$1date.timezone = UTC/eg' $cliphpfile.input > $cliphpfile
